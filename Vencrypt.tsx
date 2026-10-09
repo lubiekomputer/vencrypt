@@ -220,7 +220,7 @@ function DecryptedAccessory({ content }: { content: string; }) {
 }
 
 async function sendListener(_channelId: string, msg: { content: string; }) {
-    console.log("[EncryptChat] wysyłanie, szyfrowanie:", encryptEnabled);
+    console.log("[vencrypt] wysyłanie, szyfrowanie:", encryptEnabled);
     if (!encryptEnabled || !msg.content || msg.content.startsWith(PREFIX)) return;
 
     const password = settings.store.password;
@@ -240,7 +240,7 @@ async function sendListener(_channelId: string, msg: { content: string; }) {
 
 
 export default definePlugin({
-    name: "EncryptChat",
+    name: "vencrypt",
     description: "Szyfruje wysyłane wiadomości (AES-256-GCM) kluczem z okienka i odszyfrowuje wiadomości innych użytkowników pluginu.",
     authors: [{ name: "you", id: 0n }],
     settings,
@@ -253,11 +253,11 @@ export default definePlugin({
     start() {
         const add = (MessageEvents as any)["addMessagePreSendListener"] ?? (MessageEvents as any)["addPreSendListener"];
         if (!add) {
-            console.error("[EncryptChat] Nie znaleziono API pre-send w MessageEvents!", Object.keys(MessageEvents));
+            console.error("[vencrypt] Nie znaleziono API pre-send w MessageEvents!", Object.keys(MessageEvents));
             return;
         }
         add(sendListener);
-        console.log("[EncryptChat] listener zarejestrowany");
+        console.log("[vencrypt] listener zarejestrowany");
     },
 
     stop() {
