@@ -1,4 +1,4 @@
-# EncryptChat – a Vencord plugin
+# Vencrypt – a Vencord plugin
 
 End-to-end style message encryption for Discord, built as a [Vencord](https://vencord.dev) userplugin.
 
@@ -31,16 +31,16 @@ You need Vencord built from source ([official guide](https://docs.vencord.dev/in
 cd Vencord/src
 mkdir -p userplugins
 # copy or clone this repo's folder into userplugins:
-git clone https://github.com/<your-username>/<repo-name>.git userplugins/encryptChat
+git clone https://github.com/<your-username>/<repo-name>.git userplugins/Vencrypt
 
 cd ../..
 pnpm build
 pnpm inject
 ```
 
-Then fully restart Discord and enable **EncryptChat** under *Settings → Vencord → Plugins*.
+Then fully restart Discord and enable **Vencrypt** under *Settings → Vencord → Plugins*.
 
-The final path must be `Vencord/src/userplugins/encryptChat/index.tsx`.
+The final path must be `Vencord/src/userplugins/Vencrypt/index.tsx`.
 
 ## Usage
 
